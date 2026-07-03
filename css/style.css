@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ── Reset & base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --text:    #1a1a1a;
+  --muted:   #555;
+  --accent:  #0066cc;
+  --border:  #ddd;
+  --bg:      #fff;
+  --max-w:   820px;
+  --font:    'Montserrat', sans-serif;
+  --mono:    'Courier New', monospace;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+/* ── Layout ── */
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 0;
+}
+
+header nav {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav .site-name {
+  font-size: 1.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--text);
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.75rem;
+}
+
+header nav ul a {
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+header nav ul a:hover,
+header nav ul a.active {
+  color: var(--accent);
+}
+
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1.25rem;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ── Landing: hero ── */
+.hero {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.hero-title {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-body {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-photo-col {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.hero-photo {
+  width: 200px;
+  height: 240px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+.hero-photo-placeholder {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-text .tagline {
+  font-family: var(--font);
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 0.97rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.hero-links a {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 0.15s;
+  position: relative;
+}
+
+.hero-links a::after {
+  content: attr(title);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.hero-links a:hover::after {
+  opacity: 1;
+}
+
+.hero-links a svg {
+  width: 22px;
+  height: 22px;
+}
+
+.hero-links a:hover { color: var(--accent); }
+
+/* ── Section headings ── */
+.section-heading {
+  font-size: 1.1rem;
+  font-family: var(--font);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+section { margin-bottom: 3rem; }
+
+/* ── Updates ── */
+.updates-list {
+  list-style: none;
+}
+
+.updates-list li {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.93rem;
+}
+
+.update-date {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 90px;
+  align-self: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  box-shadow: 2px 2px 0 var(--border);
+  transition: color 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.updates-list li:hover .update-date {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 2px 2px 0 var(--accent);
+}
+
+/* ── Publications ── */
+.section-intro { font-size: 0.97rem; margin-bottom: 1.75rem; }
+
+.pub-list { display: flex; flex-direction: column; gap: 1.75rem; }
+
+.pub-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.pub-gif {
+  flex-shrink: 0;
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #f5f5f5;
+}
+
+.pub-gif-placeholder {
+  flex-shrink: 0;
+  width: 140px;
+  height: 100px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.pub-info h3 {
+  font-size: 0.97rem;
+  margin-bottom: 0.25rem;
+}
+
+.pub-info h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.pub-info h3 a:hover { color: var(--accent); text-decoration: underline; }
+
+.pub-venue {
+  font-family: var(--font);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.pub-summary {
+  font-size: 0.88rem;
+  color: #333;
+}
+
+/* ── Skeleton pages ── */
+.page-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-family: var(--font);
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.placeholder-block {
+  background: #f8f8f8;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 2.5rem;
+  text-align: center;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .hero { align-items: center; text-align: center; }
+  .hero-body { flex-direction: column; }
+  .hero-photo-col { width: 100%; }
+  .pub-card { flex-direction: column; }
+  .pub-gif, .pub-gif-placeholder { width: 100%; height: 160px; }
+}
