@@ -321,6 +321,37 @@ section { margin-bottom: 3rem; }
   color: var(--muted);
 }
 
+/* ── Robot easter egg ── */
+@keyframes robot-draw-in {
+  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  12% { opacity: 1; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+.robot-egg {
+  display: none;
+  position: fixed;
+  left: calc(50% + (var(--max-w) / 2) + 32px);
+  width: 190px;
+  height: auto;
+  filter: drop-shadow(3px 4px 6px rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.25s ease;
+  z-index: 10;
+}
+
+.robot-egg.visible {
+  animation: robot-draw-in 0.8s cubic-bezier(0.25, 0.7, 0.35, 1) forwards;
+}
+
+/* Only enable when there's enough margin to the side of the centered content */
+@media (min-width: 1180px) {
+  .robot-egg { display: block; }
+}
+
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .hero { align-items: center; text-align: center; }
